@@ -1,0 +1,66 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\author{Sebastian Contreras-Riquelme}
+\title{Resumen encode}
+\begin{document}
+Seleccion de todos los organismos de los que hay experimentos (actualizado al 24 de mayo de 2018)
+ select * from organism;\\
+
+\begin{tabular}{|c|c|}
+\hline 
+id & nombre \\ 
+\hline 
+1 & Homo sapiens \\ 
+\hline 
+2 & Mus musculus \\ 
+\hline 
+3 & Drosophila melanogaster \\ 
+\hline 
+4 & Drosophila pseudoobscura \\ 
+\hline 
+5 & Drosophila mojavensis \\ 
+\hline 
+6 & Drosophila simulans \\ 
+\hline 
+7 & Caenorhabditis elegans \\ 
+\hline 
+8 & Drosophila ananassae \\ 
+\hline 
+9 & Drosophila virilis \\ 
+\hline 
+10 & Drosophila yakuba \\ 
+\hline 
+\end{tabular} 
+ 
+ 
+Numero de experimentos disponibles en encode: select COUNT(*) from experiment; 
+
+da un total de  15311 \\
+
+
+Homo sapiens: select COUNT(experiment.id) from experiment inner join organism where organism.id = experiment.organism\_id and organism.name = ''Homo sapiens'';
+
+resultado: 10891\\
+
+lo mismo para los demas organismos\\
+Mus musculus: 1866\\
+Drosophila melanogaster: 1380\\
+Drosophila pseudoobscura: 12\\
+Drosophila mojavensis: 4\\
+Drosophila simulans: 8\\
+Caenorhabditis elegans: 975\\
+Drosophila ananassae: 1\\
+Drosophila virilis: 1\\
+Drosophila yakuba: 1\\
+
+Total:  15139\\
+hay 172 que no especifica organismo y que completa los 15311\\
+
+
+\textcolor{red}{Faltaria especificar cantidad por tipo de experimentos en humano, (por version del genoma)}
+
+\end{document}
